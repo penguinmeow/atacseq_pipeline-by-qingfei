@@ -1,3 +1,3 @@
 # atacseq_pipeline-by-qingfei
 Following is the overview of the pipeline
-![alt text](http://www.xmind.net/m/gQLXmS)
+![image](https://github.com/penguinmeow/atacseq_pipeline-by-qingfei/blob/main/ATAC-seq%20(by%20Qingfei).png)
