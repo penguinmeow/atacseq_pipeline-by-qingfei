@@ -144,7 +144,7 @@ def create_job_file_pe(samplefile1, samplefile2, adapters, out_dir, trim_reads):
     
     jobfile = prefix+".sh"
     with open(jobfile,"w") as new_file:
-        new_file.write(job_header+module1+'\n'+job_body1+'\n'+job_body2+'\n'+job_body3+'\n'+job_body4+'\n'+job_body5+'\n' +job_body6+'\n' +job_body7+'\n')
+        new_file.write(job_header+module1+'\n'+apps1 +'\n' + job_body1+'\n'+job_body2+'\n'+job_body3+'\n'+job_body4+'\n'+job_body5+'\n' +job_body6+'\n' +job_body7+'\n')
     return jobfile
 
 
