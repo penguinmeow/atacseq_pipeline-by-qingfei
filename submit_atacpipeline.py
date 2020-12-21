@@ -123,6 +123,7 @@ def create_job_file_pe(samplefile1, samplefile2, adapters, out_dir, trim_reads):
     job_body6 += "$samtools view -h {}02_alignment.mapped_rmdup_rmBLK_mitoFree.bam | awk \'substr($0,1,1)==\"@\" || ($9>307) || ($9<-307)\' | $samtools view -bS - > {}02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoTwoplus.bam\n"
     job_body6 += "$samtools sort -n {}02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.bam {}02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName\n"
     job_body6 = "$bedtools bamtobed -i {}02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName.bam | "
+    #notice that '{...}' should be wrote as \'{{,,,}}\'
     job_body6 += 'awk -v OFS="\\t" \'{{if($6==\"+\"){{print $1,$2+4,$3+4,$4,$5,$6}}else if($6==\"-\"){{print $1,$2-5,$3-5,$4,$5,$6}}}}\' > '
     job_body6 += '{}02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName.shifted.bed\n'    
     job_body6 += "$bedtools bedtobam -ubam -i {}02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName.shifted.bed -g $mm10 > {}02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName.shifted.bam\n"
