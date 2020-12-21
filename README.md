@@ -11,4 +11,5 @@ Reason: R version in the conda env by qingfei cannot cannot install GenomicFeatu
 Solved: module load R/3.6.3
 install package ChIPseeker in R(3.6.3). 
 Run smoothly in lsf.
-5. waiting to see if perl script runs good.
+5. Runs perfectly in my lsf.
+Dec 20, 2020. 
