@@ -97,7 +97,7 @@ def create_job_file_pe(samplefile1, samplefile2, adapters, out_dir, trim_reads):
     log.info("Doing Fastqc...")
     job_body2 = '$fastqc {} -o {}\n'
     job_body2 += '$fastqc {} -o {}\n'
-    job_body2.format(prefix +'/'+ basename1 + '.trim.paired.fastq.gz',prefix, prefix +'/'+ basename2 + '.trim.paired.fastq.gz',prefix)
+    job_body2 = job_body2.format(prefix +'/'+ basename1 + '.trim.paired.fastq.gz',prefix, prefix +'/'+ basename2 + '.trim.paired.fastq.gz',prefix)
     
     log.info("Mapping paired-end files to reference genome...")
     job_body3 = '$Bowtie2 -x $genomeDir --very-sensitive --phred33 -X 2000 --no-mixed --no-discordant -p 8 -1 {} -2 {} | $samtools view -bS - > {}tmp.aligned.bam'
@@ -144,7 +144,7 @@ def create_job_file_pe(samplefile1, samplefile2, adapters, out_dir, trim_reads):
     
     jobfile = prefix+".sh"
     with open(jobfile,"w") as new_file:
-        new_file.write(job_header+module1+'\n'+job_body1+'\n'+job_body2+'\n'+job_body3+'\n'+job_body4+'\n'+job_body5+'\n')
+        new_file.write(job_header+module1+'\n'+job_body1+'\n'+job_body2+'\n'+job_body3+'\n'+job_body4+'\n'+job_body5+'\n' +job_body6+'\n' +job_body7+'\n')
     return jobfile
 
 
