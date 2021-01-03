@@ -67,7 +67,7 @@ def create_job_file_pe(samplefile1, samplefile2, adapters, out_dir, trim_reads):
     module1 += 'module load picard/2.9.4\n'
     module1 += 'module load conda3/5.1.0\n'
     module1 += 'module load R/3.6.3\n'
-    module1 += 'source activate atac
+    module1 += 'source activate atac\n'
     
     apps1 = 'genomeDir=/research/projects/yu3grp/scRNASeq/yu3grp/qpan/Database/References/mm10/Gencode/Bowtie2/mm10\n'
     apps1 += 'blacklist=/research/rgs01/project_space/yu3grp/software_JY/yu3grp/yulab_databases/ENCODE_blacklist/mm10-blacklist.v2.bed\n'
@@ -126,8 +126,8 @@ def create_job_file_pe(samplefile1, samplefile2, adapters, out_dir, trim_reads):
     job_body6 = job_body6.format(prefix+'/', prefix+'/', prefix+'/', prefix+'/', prefix+'/', prefix+'/', prefix+'/', prefix+'/', prefix+'/', prefix+'/', prefix+'/', prefix+'/', prefix+'/', prefix+'/', prefix+'/')
 
     log.info("Peak Calling......")
-    job_body7 = “macs2 callpeak -f BED -n {}03_NucleosomeFree -g mm -q 0.01 --nomodel --extsize 200 --shift -100 -t {}02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName.shifted.bed --outdir {}”
-    job_body7 = job_body7.format(prefix+’/‘, prefix+’/‘, prefix)
+    job_body7 = "macs2 callpeak -f BED -n {}03_NucleosomeFree -g mm -q 0.01 --nomodel --extsize 200 --shift -100 -t {}02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName.shifted.bed --outdir {}"
+    job_body7 = job_body7.format(prefix+'/', prefix+'/', prefix)
 
     log.info("Foot Printing......")
     job_body8 = 'rgt-hint footprinting --atac-seq --paired-end --organism=mm10 --output-location={} --output-prefix=04_footPrint 02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName.shifted.sortedByPos.bam 03_NucleosomeFree_peaks.narrowPeak\n'
