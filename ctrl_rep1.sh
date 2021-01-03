@@ -10,6 +10,8 @@
 module load conda3/5.1.0
 source activate /research/rgs01/project_space/yu3grp/software_JY/yu3grp/conda_env/yulab_env_2.7
 
+export RGTDATA=/research/rgs01/project_space/yu3grp/software_JY/yu3grp/yulab_databases/rgtdata
+
 fastqc=/research/rgs01/applications/hpcf/apps/fastqc/install/0.11.5/fastqc
 cutadapt=/hpcf/apps/python/install/3.6.1/bin/cutadapt
 Bowtie2=/research/rgs01/applications/hpcf/apps/bowtie/install/2.2.9/bin/bowtie2
