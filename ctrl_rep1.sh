@@ -81,5 +81,5 @@ $macs2 callpeak -f BED -n 03_NucleosomeFree -g mm -q 0.01 --nomodel --extsize 20
 $hint footprinting --atac-seq --paired-end --organism=mm10 --output-location=$dir/$sample --output-prefix=04_footPrint $dir/$sample/02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName.shifted.sortedByPos.bam $dir/$sample/03_NucleosomeFree_peaks.narrowPeak
 $hint tracks --bc --bigWig --organism=mm10 $dir/$sample/02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName.shifted.sortedByPos.bam $dir/$sample/03_NucleosomeFree_peaks.narrowPeak --output-prefix=$dir/$sample/footprintingTracks
 $motifanalysis matching --motif-dbs ~/rgtdata/motifs/transfac_mouse --input-files $dir/$sample/04_footPrint.bed --output-location=$dir/$sample --organism=mm10
-Rscript $dir/../scripts/peakAnnotation.R $dir/$sample/04_footPrint_mpbs.bed mm10
-perl $dir/../scripts/annotationToNetwork.pl $dir/$sample/04_footPrint_mpbs.annotate.txt $dir/$sample/04_networkATACseq.txt
+Rscript /research/rgs01/project_space/yu3grp/software_JY/yu3grp/git_repo/ATACseq_pipeline/scripts/peakAnnotation.R $dir/$sample/04_footPrint_mpbs.bed mm10
+perl /research/rgs01/project_space/yu3grp/software_JY/yu3grp/git_repo/ATACseq_pipeline/scripts/annotationToNetwork.pl $dir/$sample/04_footPrint_mpbs.annotate.txt $dir/$sample/04_networkATACseq.txt
