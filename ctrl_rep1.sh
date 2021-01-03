@@ -12,6 +12,7 @@ module load R/3.6.3
 source activate /research/rgs01/project_space/yu3grp/software_JY/yu3grp/conda_env/yulab_env_2.7
 
 export RGTDATA=/research/rgs01/project_space/yu3grp/software_JY/yu3grp/yulab_databases/rgtdata
+export PATH="/home/xzhen/.local/bin:$PATH"
 
 fastqc=/research/rgs01/applications/hpcf/apps/fastqc/install/0.11.5/fastqc
 cutadapt=/hpcf/apps/python/install/3.6.1/bin/cutadapt
@@ -21,8 +22,8 @@ java=/research/rgs01/applications/hpcf/apps/java/jdk1.8.0_66/bin/java
 picard=/research/rgs01/applications/hpcf/apps/picard/install/2.16.0/picard.jar
 bedtools=/research/rgs01/project_space/yu3grp/software_JY/yu3grp/yulab_apps/apps/bedtools2/bin/bedtools
 macs2=/research/rgs01/project_space/yu3grp/software_JY/yu3grp/conda_env/yulab_env_2.7/bin/macs2
-hint=/research/rgs01/project_space/yu3grp/software_JY/yu3grp/conda_env/yulab_env_2.7/bin/rgt-hint
-motifanalysis=/research/rgs01/project_space/yu3grp/software_JY/yu3grp/conda_env/yulab_env_2.7/bin/rgt-motifanalysis
+hint=/home/xzhen/.local/bin/rgt-hint
+motifanalysis=/home/xzhen/.local/bin/rgt-motifanalysis
 
 genomeDir=/research/projects/yu3grp/scRNASeq/yu3grp/qpan/Database/References/mm10/Gencode/Bowtie2/mm10
 blacklist=/research/rgs01/project_space/yu3grp/software_JY/yu3grp/yulab_databases/ENCODE_blacklist/mm10-blacklist.v2.bed
