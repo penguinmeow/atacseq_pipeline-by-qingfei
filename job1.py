@@ -19,7 +19,7 @@ def parse_arguments():
     parser.add_argument('--path-to-fastqs', default='', type=str, help= 'Path to FASTQ files.')
     parser.add_argument('--adapters',default='/home/xzhen/adapters/NexteraPE-PE.fa', type=str, help='Fasta file of adapter sequences')
     parser.add_argument('--trim-reads',default=1,type=int,choices=[1,0] , help='Option to trim or not to trim the input reads')
-    parser.add_argument('--memory', default='10GB', type=str, help= 'Memory requested to run the analysis.')
+    parser.add_argument('--memory', default='30GB', type=str, help= 'Memory requested to run the analysis.')
     parser.add_argument('--queue', default='standard', type=str,help='Queue to submit the job in HPCF (use bqueues to choose).')
     parser.add_argument('--out-dir', default='ATAC_out', type=str,help='Output Directory.')
     parser.add_argument('--log-level', default='INFO',
