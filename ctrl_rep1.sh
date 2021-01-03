@@ -8,6 +8,7 @@
 
 
 module load conda3/5.1.0
+module load R/3.6.3
 source activate /research/rgs01/project_space/yu3grp/software_JY/yu3grp/conda_env/yulab_env_2.7
 
 export RGTDATA=/research/rgs01/project_space/yu3grp/software_JY/yu3grp/yulab_databases/rgtdata
