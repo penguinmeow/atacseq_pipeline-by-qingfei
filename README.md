@@ -12,4 +12,11 @@ Solved: module load R/3.6.3
 install package ChIPseeker in R(3.6.3). 
 Run smoothly in lsf.
 5. Runs perfectly in my lsf.
-Dec 20, 2020. 
+Jan 08, 2021. 
+
+Step1:
+python job1.py --path-to-fastqs path/to/raw/fastq/files --out-dir path/to/output/dir
+
+Step2:
+Footprinting
+python job2.py --path-to-fastqs path/to/raw/fastq/files --out-dir path/to/output/dir
