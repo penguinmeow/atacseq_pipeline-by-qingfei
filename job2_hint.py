@@ -68,7 +68,6 @@ def create_job_file_pe(samplefile1, samplefile2, out_dir):
     
     apps1 = 'hint=/research/rgs01/project_space/yu3grp/software_JY/yu3grp/conda_env/yulab_env_2.7/bin/rgt-hint \n'
     apps1 += 'motifanalysis=/research/rgs01/project_space/yu3grp/software_JY/yu3grp/conda_env/yulab_env_2.7/bin/rgt-motifanalysis \n'
-    apps1 += 'Rscript=/research/rgs01/project_space/yu3grp/scRNASeq/yu3grp/qpan/Software/R/v3.6.1/bin/Rscript \n'
     apps1 += 'genomeDir=/research/projects/yu3grp/scRNASeq/yu3grp/qpan/Database/References/mm10/Gencode/Bowtie2/mm10 \n'
     apps1 += 'blacklist=/research/rgs01/project_space/yu3grp/software_JY/yu3grp/yulab_databases/ENCODE_blacklist/mm10-blacklist.v2.bed \n'
     apps1 += 'mm10=/research/rgs01/project_space/yu3grp/scRNASeq/yu3grp/qpan/Database/References/mm10/Gencode/GRCm38.primary_assembly.genome.fa.size \n'
@@ -80,9 +79,10 @@ def create_job_file_pe(samplefile1, samplefile2, out_dir):
     job_body8 += '$hint tracks --bc --bigWig --organism=mm10 {}/02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName.shifted.sortedByPos.bam {}/03_NucleosomeFree_peaks.narrowPeak --output-prefix={}/footprintingTracks\n'
     job_body8 += '$motifanalysis matching --motif-dbs $RGTDATA/motifs/transfac_mouse --input-files {}/04_footPrint.bed --output-location={} --organism=mm10\n'
     #if current script don't work, then: Job_job8 += 'conda deactivate \n' then remove the "$" in Rscript [[lack of mpbs_annotation.txt for unknown reason]]
-    job_body8 += '$Rscript /research/rgs01/project_space/yu3grp/software_JY/yu3grp/git_repo/ATACseq_pipeline/scripts/peakAnnotation.R {}/04_footPrint_mpbs.bed mm10\n'
+    job_body8 += 'conda deactivate\n'
+    job_body8 += 'Rscript /research/rgs01/project_space/yu3grp/software_JY/yu3grp/git_repo/ATACseq_pipeline/scripts/peakAnnotation.R {}/04_footPrint_mpbs.bed mm10\n'
     job_body8 += 'perl /research/rgs01/project_space/yu3grp/software_JY/yu3grp/git_repo/ATACseq_pipeline/scripts/annotationToNetwork.pl {}/04_footPrint_mpbs.annotate.txt {}/04_networkATACseq.txt\n'
-    job_body8 = job_body8.format(prefix, prefix, prefix, prefix, prefix, prefix, prefix, prefix, basename1, basename1, basename1)
+    job_body8 = job_body8.format(prefix, prefix, prefix, prefix, prefix, prefix, prefix, prefix, prefix, prefix, prefix)
     
     jobfile = prefix+".sh"
     with open(jobfile,"w") as new_file:
