@@ -79,6 +79,7 @@ def create_job_file_pe(samplefile1, samplefile2, out_dir):
     job_body8 = '$hint footprinting --atac-seq --paired-end --organism=mm10 --output-location={} --output-prefix=04_footPrint {}/02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName.shifted.sortedByPos.bam {}/03_NucleosomeFree_peaks.narrowPeak\n'
     job_body8 += '$hint tracks --bc --bigWig --organism=mm10 {}/02_alignment.mapped_rmdup_rmBLK_mitoFree.nucleoFree.sortedByName.shifted.sortedByPos.bam {}/03_NucleosomeFree_peaks.narrowPeak --output-prefix={}/footprintingTracks\n'
     job_body8 += '$motifanalysis matching --motif-dbs $RGTDATA/motifs/transfac_mouse --input-files {}/04_footPrint.bed --output-location={} --organism=mm10\n'
+    #if current script don't work, then: Job_job8 += 'conda deactivate \n' then remove the "$" in Rscript [[lack of mpbs_annotation.txt for unknown reason]]
     job_body8 += '$Rscript /research/rgs01/project_space/yu3grp/software_JY/yu3grp/git_repo/ATACseq_pipeline/scripts/peakAnnotation.R {}/04_footPrint_mpbs.bed mm10\n'
     job_body8 += 'perl /research/rgs01/project_space/yu3grp/software_JY/yu3grp/git_repo/ATACseq_pipeline/scripts/annotationToNetwork.pl {}/04_footPrint_mpbs.annotate.txt {}/04_networkATACseq.txt\n'
     job_body8 = job_body8.format(prefix, prefix, prefix, prefix, prefix, prefix, prefix, prefix, prefix, prefix, prefix)
